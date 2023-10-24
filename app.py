@@ -68,7 +68,7 @@ def confirm():
             total += item["price"] * count
 
     if total <= 0:
-        return render_template("error.html", status=400, msg="個数が無効です")
+        return render_template("error.html", status=400, msg="個数が無効です", src="static/img/wrong_zundamon.png")
     else:
         return render_template("confirm.html", data=data, total=total)
 
@@ -138,6 +138,11 @@ def history():
 @app.route("/route")
 def route():
     return render_template("route.html")
+
+
+@app.route("/title")
+def title():
+    return render_template("title.html")
 
 
 if __name__ == "__main__":
