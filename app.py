@@ -14,6 +14,7 @@ print(f"APP SECRET KEY: \u001b[31m{app.secret_key}\u001b[0m")
 # app.config["SQLALCHEMY_DATABASE_URI"] = "mysql://root:BTcfrLkK1FFU@localhost:3306/mconlinejudge"
 app.config["MYSQL_HOST"] = "localhost"
 app.config["MYSQL_USER"] = "root"
+# app.config["MYSQL_PASSWORD"] = input("Input MYSQL Password: ")
 app.config["MYSQL_PASSWORD"] = "BTcfrLkK1FFU"
 app.config["MYSQL_DB"] = "order_system"
 
@@ -132,6 +133,11 @@ def history():
     items = cursor.fetchall()
 
     return render_template("history.html", items=items)
+
+
+@app.route("/route")
+def route():
+    return render_template("route.html")
 
 
 if __name__ == "__main__":
